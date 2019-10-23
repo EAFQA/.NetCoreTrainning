@@ -1,11 +1,12 @@
 ﻿using AspNetCore.Dominio.Entidades.ObjetoValor;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace AspNetCore.Dominio.Entidades
 {
-    public class Pedido
+    public class Pedido : Entidade
     {
         public int Id { get; set; }
         public DateTime DataPedido { get; set; }
@@ -21,5 +22,20 @@ namespace AspNetCore.Dominio.Entidades
         public int FormaPagamentoId { get; set; }
 
         public FormaPagamento FormaPagamento { get; set; }
+
+        public override void Validate()
+        {
+            LimparMensagemValidacao();
+
+            if (!ItensPedido.Any())
+            {
+                AdicionarCritica("Crítica. Pedido não pode ficar vazio");
+            }
+
+            if (string.IsNullOrEmpty(CEP))
+            {
+                AdicionarCritica("Crítica. CEP deve estar preenchido.");
+            }
+        }
     }
 }
