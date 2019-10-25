@@ -4,4 +4,8 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AspNetCore.Dominio\AspNetCore.Dominio.csproj" />
+  </ItemGroup>
+
 </Project>

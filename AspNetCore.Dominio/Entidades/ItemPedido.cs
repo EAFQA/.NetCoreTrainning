@@ -13,7 +13,17 @@ namespace AspNetCore.Dominio.Entidades
 
         public override void Validate()
         {
-            throw new NotImplementedException();
+            LimparMensagemValidacao();
+
+            if (ProdutoId == 0)
+            {
+                AdicionarCritica("Não foi identificado qual a referência do produto.");
+            }
+
+            if (Quantidade == 0)
+            {
+                AdicionarCritica("Quantidade não informado.");
+            }
         }
     }
 }

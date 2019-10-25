@@ -13,7 +13,10 @@ namespace AspNetCore.Dominio.Entidades
 
         public override void Validate()
         {
-            throw new NotImplementedException();
+            if (Preco == 0)
+            {
+                AdicionarCritica("Favor inserir um produto com valor > 0");
+            }
         }
     }
 }

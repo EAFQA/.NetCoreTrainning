@@ -15,7 +15,15 @@ namespace AspNetCore.Dominio.Entidades
 
         public override void Validate()
         {
-            throw new System.NotImplementedException();
+            if (string.IsNullOrEmpty(Email))
+            {
+                AdicionarCritica("Crítica. Email não foi informado.");
+            }
+
+            if (string.IsNullOrEmpty(Senha))
+            {
+                AdicionarCritica("Crítica. Email não foi informado.");
+            }
         }
     }
 }
